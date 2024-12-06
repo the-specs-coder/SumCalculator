@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculator</title>
+    <style>
+        #main{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #first{
+            margin:20px
+        }
+
+        #butt{
+            margin:20px;
+            
+        }
+        #butt:hover{
+            cursor: pointer;
+        }
+        
+        #display{
+            font-size: 20rem;
+            color:black;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="first">
+            <label for="num1">Number 1:</label>
+            <input type="text" id="num1">
+        </div>
+        
+        <div id="sec">
+            <label for="num2">Number 2:</label>
+            <input type="text" id="num2">
+        </div>
+        
+        <button id="butt" onclick="add()">Add</button>
+
+        <div id="display"></div>
+    </div>
+
+    <script>
+    
+         async function add()
+         {  
+            const num1=document.getElementById("num1").value
+            const num2=document.getElementById("num2").value
+
+            let response=await fetch("http://localhost:3000/sum?a="+num1+"&b="+num2)
+            let data= await response.json()
+
+            let result=data["msg"]
+
+            console.log(data)
+            document.getElementById("display").innerText=result
+         }
+
+    </script>
+</body>
+</html>
