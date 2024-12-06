@@ -1,5 +1,5 @@
 ## Sum Calculator
-My first project where I learnt the basics
+My first project where I learnt the basics of :
 - HTML
 - CSS
 - JavaScript
